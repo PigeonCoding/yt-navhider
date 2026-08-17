@@ -14,7 +14,7 @@ A lightweight Firefox extension that auto-hides the YouTube top header and revea
 ## Install
 
 1. **Temporary (development):** open `about:debugging#/runtime/this-firefox`, click *Load Temporary Add-on*, and select `manifest.json`.
-2. **Permanent:** package the extension as an `.xpi`, upload it to [addons.mozilla.org](https://addons.mozilla.org) as a self-distributed add-on, and install the signed file.
+2. **Permanent:** add the link to mozilla website when it gets approved
 
 ## Build
 
@@ -33,7 +33,3 @@ cd extension && zip -r -X ../yt-navhider.xpi .
 | `styles.css`     | Hide/show transitions and layout adjustments.  |
 | `background.js`  | Toolbar toggle and icon switching.             |
 | `icons/`         | Toolbar icons.                                 |
-
-## License
-
-[MIT](LICENSE)
