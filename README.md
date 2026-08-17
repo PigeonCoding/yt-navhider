@@ -21,7 +21,7 @@ A lightweight Firefox extension that auto-hides the YouTube top header and revea
 Package the add-on into an `.xpi`:
 
 ```sh
-cd extension && zip -r -X ../yt-navhider.xpi .
+cd yt-nachider && zip -r -X yt-navhider.xpi .
 ```
 
 ## Files
