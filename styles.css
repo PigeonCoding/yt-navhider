@@ -1,0 +1,80 @@
+/* Smooth slide for the top bar when the extension is active. */
+ytd-app.ytnh #masthead-container.ytd-app {
+  transition: transform 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+/* Keep the page content, chip bar, mini-guide and frosted strip in sync
+   with the bar so nothing snaps when toggling. */
+ytd-app.ytnh #page-manager.ytd-app {
+  transition: margin-top 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+ytd-app.ytnh #frosted-glass.ytd-app {
+  transition: height 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+ytd-app.ytnh #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+  transition: top 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+ytd-app.ytnh ytd-mini-guide-renderer.ytd-app {
+  transition: top 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+/* The playlist immersive backdrop and sidebars are position:fixed without an
+   explicit top, so their static position follows the page margin and would
+   snap. Pin the top to the header height and animate it with the bar. */
+ytd-app.ytnh ytd-playlist-header-renderer.ytd-browse,
+ytd-app.ytnh ytd-playlist-sidebar-renderer.ytd-browse,
+ytd-app.ytnh ytd-settings-sidebar-renderer.ytd-browse {
+  top: calc(24px + var(--ytd-masthead-height, var(--ytd-toolbar-height)));
+  transition: top 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+/* The playlist filter bar is position:fixed, so it sits out of the normal
+   flow. Animate its pin offset with the bar; the clearance below it lives on
+   the outer #contents wrapper (NOT the virtualized video list) so the list's
+   scroll metrics never change and it doesn't re-render/jump while animating. */
+ytd-app.ytnh ytd-item-section-renderer[page-subtype="playlist"] #header {
+  transition: top 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+ytd-app.ytnh ytd-item-section-renderer[page-subtype="playlist"] > #contents {
+  transition: padding-top 0.3s cubic-bezier(0.05, 0, 0, 1);
+}
+
+/* Hidden state: reclaim the top bar's space and slide the bar away. */
+ytd-app.ytnh-hidden {
+  --ytd-masthead-height: 0px;
+  --ytd-masthead-height-accounting-for-hidden: 0px;
+}
+
+ytd-app.ytnh-hidden #masthead-container.ytd-app {
+  transform: translateY(calc(-100% - 5px)) !important;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.05, 0, 0, 1), opacity 0s 0.3s, visibility 0s 0.3s;
+}
+
+/* Keep a blurred strip behind the category chip bar on the home feed. */
+ytd-app.ytnh-hidden #frosted-glass.ytd-app {
+  height: 56px !important;
+}
+
+/* Pull the home-feed category chip bar up to the top of the viewport. */
+ytd-app.ytnh-hidden ytd-feed-filter-chip-bar-renderer {
+  --ytd-rich-grid-chips-bar-top: 0px !important;
+}
+
+/* Pull sticky item-section headers (e.g. the playlist sort bar) to the top. */
+ytd-app.ytnh-hidden ytd-item-section-renderer[page-subtype="playlist"] {
+  --ytd-item-section-header-top: 0px !important;
+}
+
+/* Keep the first playlist video clear of the fixed filter bar. The bar is
+   position:fixed, so a margin on it can't push content; the clearance has to
+   be on the wrapper that follows it in the flow. */
+ytd-app.ytnh-hidden ytd-item-section-renderer[page-subtype="playlist"] > #contents {
+  padding-top: 36px;
+}
