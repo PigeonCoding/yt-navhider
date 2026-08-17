@@ -56,8 +56,7 @@
     if (target && target.closest && target.closest('#masthead-container #search')) {
       return;
     }
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop === 0 && event.clientY <= HOVER_ZONE) {
+    if (event.clientY <= HOVER_ZONE) {
       clearTimeout(delayTimer);
       showTop();
     } else {
