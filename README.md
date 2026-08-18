@@ -33,3 +33,7 @@ cd yt-nachider && zip -r yt-navhider.xpi . -x '.git/*'
 | `styles.css`     | Hide/show transitions and layout adjustments.  |
 | `background.js`  | Toolbar toggle and icon switching.             |
 | `icons/`         | Toolbar icons.                                 |
+
+## AI Disclaimer
+
+AI was involved in the development of this project. All changes were verified and tested by a human.
