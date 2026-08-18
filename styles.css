@@ -43,10 +43,13 @@ ytd-app.ytnh ytd-item-section-renderer[page-subtype="playlist"] > #contents {
   transition: padding-top 0.3s cubic-bezier(0.05, 0, 0, 1);
 }
 
-/* Hidden state: reclaim the top bar's space and slide the bar away. */
+/* Hidden state: reclaim the top bar's space and slide the bar away.
+   !important is required because on watch pages YouTube sets
+   --ytd-masthead-height inline on ytd-app (fullerscreen layout); an inline
+   style would otherwise beat this rule and leave a gap at the top. */
 ytd-app.ytnh-hidden {
-  --ytd-masthead-height: 0px;
-  --ytd-masthead-height-accounting-for-hidden: 0px;
+  --ytd-masthead-height: 0px !important;
+  --ytd-masthead-height-accounting-for-hidden: 0px !important;
 }
 
 ytd-app.ytnh-hidden #masthead-container.ytd-app {
