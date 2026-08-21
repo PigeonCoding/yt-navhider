@@ -14,7 +14,7 @@ A lightweight Firefox extension that auto-hides the YouTube top header and revea
 ## Install
 
 1. **Temporary (development):** open `about:debugging#/runtime/this-firefox`, click *Load Temporary Add-on*, and select `manifest.json`.
-2. **Permanent:** add the link to mozilla website when it gets approved
+2. **Permanent:** get it from the [firefox addons store](https://addons.mozilla.org/en-US/firefox/addon/youtube-nav-hider/)
 
 ## Build
 
